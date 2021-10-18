@@ -9,6 +9,8 @@
         {
             Console.WriteLine("Hello World!!!!!!!");
             FileHandler.ReadFiles();
+            FileHandler.AddStringsToList(FileHandler.strList);
+            FileHandler.SearchForWord("natural");
             
         }
     }
