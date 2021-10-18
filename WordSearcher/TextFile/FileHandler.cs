@@ -23,6 +23,7 @@ namespace WordSearcher.TextFile
             Console.WriteLine(textOne);
             //Console.WriteLine(textTwo);
             //Console.WriteLine(textThree);
+            //Hej på dig
 
         }
 
