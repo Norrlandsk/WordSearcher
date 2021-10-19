@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace WordSearcher.TextFile
 {
@@ -23,7 +24,8 @@ namespace WordSearcher.TextFile
         public static string[] wordsThree;
         public static List<string[]> wordsList = new List<string[]>();
 
-        public static char[] delimiterChars = { ' ', ',', '.', ':' };
+        public static char[] delimiterChars = { ' ', ',', '.', ':', '—', '-', ';' };
+
 
 
 
@@ -45,16 +47,17 @@ namespace WordSearcher.TextFile
 
         public static void AddStringsToList(List<string> str)
         {
-            wordsOne = textOne.Split(delimiterChars, StringSplitOptions.RemoveEmptyEntries);
-            wordsTwo = textTwo.Split(delimiterChars, StringSplitOptions.RemoveEmptyEntries);
-            wordsThree = textThree.Split(delimiterChars, StringSplitOptions.RemoveEmptyEntries);
+            //wordsOne = textOne.Split(delimiterChars, StringSplitOptions.RemoveEmptyEntries);
+            //wordsTwo = textTwo.Split(delimiterChars, StringSplitOptions.RemoveEmptyEntries);
+            //wordsThree = textThree.Split(delimiterChars, StringSplitOptions.RemoveEmptyEntries);
+            //wordsOne = System.Text.RegularExpressions.Regex.Split(textOne, pattern);
 
             wordsList.Add(wordsOne);
-            wordsList.Add(wordsTwo);
-            wordsList.Add(wordsThree);
+            //wordsList.Add(wordsTwo);
+            //wordsList.Add(wordsThree);
         }
 
-            
+
 
 
 
@@ -75,34 +78,45 @@ namespace WordSearcher.TextFile
 
                 Console.WriteLine(counter);
                 counter = 0;
-                
+
             }
 
 
 
 
 
-            
 
-            //foreach (var item in wordsTwo)
-            //{
-            //    Console.WriteLine(item);
-            //}
+
+            foreach (var item in wordsOne)
+            {
+                Console.WriteLine(item);
+            }
         }
 
-        public static void SearchForWord2(string userInput)
+        public static void SearchForWord2()
         {
+            string pattern = $@"\b\w+natural\b";
+            Regex rgx = new Regex(pattern);
             int counter = 0;
 
-            for (int i = 0; i < wordsOne.Length; i++)
+            foreach (Match match in rgx.Matches(textOne))
             {
-                if (userInput == wordsOne[i])
-                {
-                    counter++;
-                }
+                counter++;
             }
+
             Console.WriteLine(counter);
         }
+
+
+
+        public static void countTrue(string data)
+        {
+            
+            Console.WriteLine(Regex.Matches(textOne, data).Count());
+        }
+
+
+
 
 
 
