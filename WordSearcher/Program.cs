@@ -8,10 +8,11 @@
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!!!!!!!");
+            //Console.WriteLine("Hello World!!!!!!!");
             FileHandler.ReadFiles();
             FileHandler.AddStringsToList(FileHandler.strList);
-            FileHandler.SearchForWord("natural");
+
+            FileHandler.PrintSearchResult(FileHandler.SearchForWord("species", FileHandler.docObj));
         }
     }
 }

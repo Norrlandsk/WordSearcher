@@ -7,9 +7,9 @@
     internal class SearchResult
     {
         private string _text;
-        private Dictionary<DocumentObject, int> _wordCount;
+        private List<Dictionary<DocumentObject, int>> _wordCount;
 
-        public SearchResult(string text, Dictionary<DocumentObject, int> wordCount)
+        public SearchResult(string text, List<Dictionary<DocumentObject, int>> wordCount)
         {
             _text = text;
             _wordCount = wordCount;
@@ -22,7 +22,7 @@
             set => _text = value;
         }
 
-        public Dictionary<DocumentObject, int> WordCount
+        public List<Dictionary<DocumentObject, int>> WordCount
         {
             get => _wordCount;
 
