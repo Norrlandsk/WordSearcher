@@ -37,11 +37,10 @@ namespace WordSearcher.TextFile
             textTwo = File.ReadAllText(Path.Combine(docPath, "Text_2.txt"));
             textThree = File.ReadAllText(Path.Combine(docPath, "Text_3.txt"));
 
-
             DocumentObject d1 = new DocumentObject(textOne, DocumentObject.SetID());
             DocumentObject d2 = new DocumentObject(textTwo, DocumentObject.SetID());
             DocumentObject d3 = new DocumentObject(textThree, DocumentObject.SetID());
-          
+
             docObj.Add(d1);
             docObj.Add(d2);
             docObj.Add(d3);
@@ -63,8 +62,6 @@ namespace WordSearcher.TextFile
             wordsList.Add(wordsThree);
         }
 
-       
-
         //public static void SearchForWord2()
         //{
         //    string pattern = $@"\b\w+natural\b";
@@ -83,8 +80,8 @@ namespace WordSearcher.TextFile
         {
             string pattern = string.Format(@"\b{0}\b", userInput);
             int counter = 0;
-            
-            List<Dictionary<DocumentObject, int>> wordCountDict = new List<Dictionary<DocumentObject, int>>(); 
+
+            List<Dictionary<DocumentObject, int>> wordCountDict = new List<Dictionary<DocumentObject, int>>();
 
             foreach (var item in docObj)
             {
@@ -94,7 +91,7 @@ namespace WordSearcher.TextFile
                 wordCountDict.Add(wordCount);
             }
 
-            SearchResult sr = new SearchResult(userInput,wordCountDict);
+            SearchResult sr = new SearchResult(userInput, wordCountDict);
             return sr;
 
             //Console.WriteLine(Regex.Matches(textOne, pattern, RegexOptions.IgnoreCase).Count());
@@ -105,19 +102,13 @@ namespace WordSearcher.TextFile
             //}
         }
 
-        //public static void PrintSearchResult(SearchResult sr)
-        //{
-        //    Console.WriteLine(sr.Text);
-        //    for (int i = 0; i < sr.WordCount.Count; i++)
-        //    {
-        //        Console.WriteLine(sr.WordCount[i].TryGetValue(sr.WordCount[i].));
-        //    }
-        //}
-
-
-
-
+        public static void PrintSearchResult(SearchResult sr)
+        {
+            Console.WriteLine(sr.Word);
+            for (int i = 0; i < sr.WordCount.Count; i++)
+            {
+                Console.WriteLine(sr.WordCount[i]);
+            }
+        }
     }
-
-
 }
