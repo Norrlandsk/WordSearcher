@@ -9,15 +9,10 @@
         private static void Main(string[] args)
         {
             //Console.WriteLine("Hello World!!!!!!!");
-            //FileHandler.ReadFiles();
-            //FileHandler.AddStringsToList(FileHandler.strList);
-            //FileHandler.SearchForWord("natural");
+            FileHandler.ReadFiles();
+            FileHandler.AddStringsToList(FileHandler.strList);
 
-            Model model = new Model();
-
-            Node node = new Node(3);
-
-            node.
+            FileHandler.PrintSearchResult(FileHandler.SearchForWord("species", FileHandler.docObj));
         }
     }
 }

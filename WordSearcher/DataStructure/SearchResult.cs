@@ -22,7 +22,7 @@
             set => _word = value;
         }
 
-        public Dictionary<DocumentObject, int> WordCount
+        public List<Dictionary<DocumentObject, int>> WordCount
         {
             get => _wordCount;
 

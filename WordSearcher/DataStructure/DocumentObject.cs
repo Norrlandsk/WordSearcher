@@ -7,7 +7,7 @@
 
     public class DocumentObject
     {
-        private int _id;
+        private static int _id;
         private string _text;
 
         public DocumentObject(string text, int id)
@@ -29,11 +29,11 @@
             set => _text = value;
         }
 
-        public void SetID()
+        public static int SetID()
         {
             int count = 0;
             count++;
-            _id = count;
+            return _id = count;
         }
     }
 }
