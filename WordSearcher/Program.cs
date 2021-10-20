@@ -1,6 +1,7 @@
 ﻿namespace WordSearcher
 {
     using System;
+    using WordSearcher.DataStructure;
     using WordSearcher.TextFile;
 
     internal class Program
@@ -10,9 +11,7 @@
             Console.WriteLine("Hello World!!!!!!!");
             FileHandler.ReadFiles();
             FileHandler.AddStringsToList(FileHandler.strList);
-            //FileHandler.SearchForWord("effects");
-            FileHandler.countTrue("natural");
-            
+            FileHandler.SearchForWord("natural");
         }
     }
 }

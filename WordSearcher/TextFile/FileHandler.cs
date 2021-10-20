@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
-using System.Text.RegularExpressions;
+using WordSearcher.DataStructure;
 
 namespace WordSearcher.TextFile
 {
@@ -26,10 +26,6 @@ namespace WordSearcher.TextFile
 
         public static char[] delimiterChars = { ' ', ',', '.', ':', '—', '-', ';' };
 
-
-
-
-
         public static void ReadFiles()
         {
             string docPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -38,12 +34,14 @@ namespace WordSearcher.TextFile
             textTwo = File.ReadAllText(Path.Combine(docPath, "Text_2.txt"));
             textThree = File.ReadAllText(Path.Combine(docPath, "Text_3.txt"));
 
+            DocumentObject d1 = new DocumentObject(textOne, DocumentObject.SetID());
+            DocumentObject d2 = new DocumentObject(textTwo, DocumentObject.SetID());
+            DocumentObject d3 = new DocumentObject(textThree, DocumentObject.SetID());
+
             strList.Add(textOne);
             strList.Add(textTwo);
             strList.Add(textThree);
-
         }
-
 
         public static void AddStringsToList(List<string> str)
         {
@@ -57,10 +55,6 @@ namespace WordSearcher.TextFile
             //wordsList.Add(wordsThree);
         }
 
-
-
-
-
         public static void SearchForWord(string userInput)
         {
             int counter = 0;
@@ -69,7 +63,6 @@ namespace WordSearcher.TextFile
             {
                 foreach (var item in wordsList[i])
                 {
-
                     if (string.Equals(userInput, item, StringComparison.OrdinalIgnoreCase))
                     {
                         counter++;
@@ -78,19 +71,12 @@ namespace WordSearcher.TextFile
 
                 Console.WriteLine(counter);
                 counter = 0;
-
             }
 
-
-
-
-
-
-
-            foreach (var item in wordsOne)
-            {
-                Console.WriteLine(item);
-            }
+            //foreach (var item in wordsTwo)
+            //{
+            //    Console.WriteLine(item);
+            //}
         }
 
         public static void SearchForWord2()
@@ -106,24 +92,5 @@ namespace WordSearcher.TextFile
 
             Console.WriteLine(counter);
         }
-
-
-
-        public static void countTrue(string data)
-        {
-            
-            Console.WriteLine(Regex.Matches(textOne, data).Count());
-        }
-
-
-
-
-
-
-
-
-
-
-
     }
 }
