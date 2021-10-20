@@ -6,20 +6,20 @@
 
     internal class SearchResult
     {
-        private string _text;
+        private string _word;
         private Dictionary<DocumentObject, int> _wordCount;
 
-        public SearchResult(string text, Dictionary<DocumentObject, int> wordCount)
+        public SearchResult(string word, Dictionary<DocumentObject, int> wordCount)
         {
-            _text = text;
+            _word = word;
             _wordCount = wordCount;
         }
 
-        public string Text
+        public string Word
         {
-            get => _text;
+            get => _word;
 
-            set => _text = value;
+            set => _word = value;
         }
 
         public Dictionary<DocumentObject, int> WordCount
