@@ -7,20 +7,23 @@
 
     public class DocumentObject
     {
-        private static int _id;
+        private static int counter = 0;
+
+        private int _id;
         private string _text;
 
-        public DocumentObject(string text, int id)
+        public DocumentObject(string text)
         {
-            _id = id;
+            //this.Id = System.Threading.Interlocked.Increment(ref counter);
+            counter++;
+            this._id = counter;
             _text = text;
         }
 
         public int Id
         {
             get => _id;
-
-            set => SetID();
+            set => _id = value;
         }
 
         public string Text
@@ -29,11 +32,10 @@
             set => _text = value;
         }
 
-        public static int SetID()
-        {
-            int count = 0;
-            count++;
-            return _id = count;
-        }
+        //public static int SetID()
+        //{
+        //    _count++;
+        //    return _id = _count;
+        //}
     }
 }

@@ -37,9 +37,9 @@ namespace WordSearcher.TextFile
             textTwo = File.ReadAllText(Path.Combine(docPath, "Text_2.txt"));
             textThree = File.ReadAllText(Path.Combine(docPath, "Text_3.txt"));
 
-            DocumentObject d1 = new DocumentObject(textOne, DocumentObject.SetID());
-            DocumentObject d2 = new DocumentObject(textTwo, DocumentObject.SetID());
-            DocumentObject d3 = new DocumentObject(textThree, DocumentObject.SetID());
+            DocumentObject d1 = new DocumentObject(textOne);
+            DocumentObject d2 = new DocumentObject(textTwo);
+            DocumentObject d3 = new DocumentObject(textThree);
 
             docObj.Add(d1);
             docObj.Add(d2);
@@ -81,17 +81,17 @@ namespace WordSearcher.TextFile
             string pattern = string.Format(@"\b{0}\b", userInput);
             int counter = 0;
 
-            List<Dictionary<DocumentObject, int>> wordCountDict = new List<Dictionary<DocumentObject, int>>();
+            Dictionary<DocumentObject, int> wordCount = new Dictionary<DocumentObject, int>();
 
             foreach (var item in docObj)
             {
                 counter = Regex.Matches(item.Text, pattern, RegexOptions.IgnoreCase).Count();
-                Dictionary<DocumentObject, int> wordCount = new Dictionary<DocumentObject, int>();
+                //Dictionary<DocumentObject, int> wordCount = new Dictionary<DocumentObject, int>();
                 wordCount.Add(item, counter);
-                wordCountDict.Add(wordCount);
+                //wordCountDict.Add(wordCount);
             }
 
-            SearchResult sr = new SearchResult(userInput, wordCountDict);
+            SearchResult sr = new SearchResult(userInput, wordCount);
             return sr;
 
             //Console.WriteLine(Regex.Matches(textOne, pattern, RegexOptions.IgnoreCase).Count());
@@ -104,10 +104,11 @@ namespace WordSearcher.TextFile
 
         public static void PrintSearchResult(SearchResult sr)
         {
-            Console.WriteLine(sr.Word);
-            for (int i = 0; i < sr.WordCount.Count; i++)
+            Console.WriteLine($"Search term: {sr.Word}\n");
+            foreach (var item in sr.WordCount)
             {
-                Console.WriteLine(sr.WordCount[i]);
+                Console.WriteLine($"Document ID: {item.Key.Id}");
+                Console.WriteLine($"Instances of search term: {item.Value}\n");
             }
         }
     }
