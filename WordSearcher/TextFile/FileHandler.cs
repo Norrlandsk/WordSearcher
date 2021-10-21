@@ -25,6 +25,8 @@ namespace WordSearcher.TextFile
         public static string[] wordsThree;
         public static List<string[]> wordsList = new List<string[]>();
 
+        public static Tree tree = CreateTree();
+
         public static char[] delimiterChars = { ' ', ',', '.', ':', '—', '-', ';', '\n', '\r', '‘', '’', '(', ')', '?' };
 
         public static List<DocumentObject> docObj = new List<DocumentObject>();
@@ -81,35 +83,41 @@ namespace WordSearcher.TextFile
             string pattern = string.Format(@"\b{0}\b", userInput);
             int counter = 0;
 
-            Dictionary<DocumentObject, int> wordCount = new Dictionary<DocumentObject, int>();
+            Dictionary<int, int> wordCount = new Dictionary<int, int>();
 
             foreach (var item in docObj)
             {
                 counter = Regex.Matches(item.Text, pattern, RegexOptions.IgnoreCase).Count();
-                //Dictionary<DocumentObject, int> wordCount = new Dictionary<DocumentObject, int>();
-                wordCount.Add(item, counter);
-                //wordCountDict.Add(wordCount);
+                wordCount.Add(item.Id, counter);
             }
 
             SearchResult sr = new SearchResult(userInput, wordCount);
+            InsertSearchResult(sr);
             return sr;
-
-            //Console.WriteLine(Regex.Matches(textOne, pattern, RegexOptions.IgnoreCase).Count());
-
-            //foreach (var item in wordsOne)
-            //{
-            //    Console.WriteLine(item);
-            //}
         }
 
-        public static void PrintSearchResult(SearchResult sr)
+        public static Tree CreateTree()
         {
-            Console.WriteLine($"Search term: {sr.Word}\n");
-            foreach (var item in sr.WordCount)
-            {
-                Console.WriteLine($"Document ID: {item.Key.Id}");
-                Console.WriteLine($"Instances of search term: {item.Value}\n");
-            }
+            Tree tree = new Tree();
+
+            return tree;
         }
+
+        public static void InsertSearchResult(SearchResult sr)
+        {
+            //var docuId=sr.WordCount.
+
+            tree.Insert(sr);
+        }
+
+        //public static void PrintSearchResult(SearchResult sr)
+        //{
+        //    Console.WriteLine($"Search term: {sr.Word}\n");
+        //    foreach (var item in sr.WordCount)
+        //    {
+        //        Console.WriteLine($"Document ID: {item.Key}");
+        //        Console.WriteLine($"Instances of search term: {item.Value}\n");
+        //    }
+        //}
     }
 }

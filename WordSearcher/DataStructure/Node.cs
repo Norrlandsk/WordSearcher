@@ -4,71 +4,23 @@
     using System.Collections.Generic;
     using System.Text;
 
-    internal class Node
+    public class Node
     {
-        private int value;
-        private Node rightNode;
-        private Node leftNode;
+        //public string Word { get; set; }
+        //public int DocumentId { get; set; }
+        //public int Count { get; set; }
 
-        //Constructor
-        public Node(int value)
+        public SearchResult Result { get; set; }
+        public Node Left { get; set; }
+        public Node Right { get; set; }
+
+        public Node()
         {
-            this.setValue(value);
         }
 
-        //Getters and setters below
-        public int getValue()
+        public Node(SearchResult sr)
         {
-            return value;
-        }
-
-        public void setValue(int newValue)
-        {
-            this.value = newValue;
-        }
-
-        public Node getRightNode()
-        {
-            return this.rightNode;
-        }
-
-        public void setRightNode(Node newNode)
-        {
-            this.rightNode = newNode;
-        }
-
-        public Node getLeftNode()
-        {
-            return this.leftNode;
-        }
-
-        public void setLeftNode(Node newNode)
-        {
-            this.leftNode = newNode;
-        }
-
-        //ToString for printOut
-        public String toString()
-        {
-            String outputString = "Value: " + getValue();
-            if (getLeftNode() != null)
-            {
-                outputString += "\n" + "LeftNode: " + getLeftNode().getValue();
-            }
-            else
-            {
-                outputString += "\n" + "LeftNode: Empty";
-            }
-            if (getRightNode() != null)
-            {
-                outputString += "\n" + "RightNode: " + getRightNode().getValue();
-            }
-            else
-            {
-                outputString += "\n" + "RightNode: Empty";
-            }
-
-            return outputString;
+            this.Result = sr;
         }
     }
 }

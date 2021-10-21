@@ -4,12 +4,12 @@
     using System.Collections.Generic;
     using System.Text;
 
-    internal class SearchResult
+    public class SearchResult
     {
         private string _word;
-        private Dictionary<DocumentObject, int> _wordCount;
+        private Dictionary<int, int> _wordCount;
 
-        public SearchResult(string word, Dictionary<DocumentObject, int> wordCount)
+        public SearchResult(string word, Dictionary<int, int> wordCount)
         {
             _word = word;
             _wordCount = wordCount;
@@ -22,7 +22,7 @@
             set => _word = value;
         }
 
-        public Dictionary<DocumentObject, int> WordCount
+        public Dictionary<int, int> WordCount
         {
             get => _wordCount;
 

@@ -12,7 +12,17 @@
             FileHandler.ReadFiles();
             FileHandler.AddStringsToList(FileHandler.strList);
 
-            FileHandler.PrintSearchResult(FileHandler.SearchForWord("species", FileHandler.docObj));
+            //FileHandler.PrintSearchResult(FileHandler.SearchForWord("species", FileHandler.docObj));
+
+            FileHandler.SearchForWord("species", FileHandler.docObj);
+            FileHandler.SearchForWord("xylophone", FileHandler.docObj);
+            FileHandler.SearchForWord("be", FileHandler.docObj);
+            FileHandler.SearchForWord("and", FileHandler.docObj);
+            FileHandler.SearchForWord("the", FileHandler.docObj);
+            FileHandler.SearchForWord("species", FileHandler.docObj);
+            FileHandler.SearchForWord("natural", FileHandler.docObj);
+            FileHandler.SearchForWord("and", FileHandler.docObj);
+            FileHandler.tree.DisplayTree();
         }
     }
 }
