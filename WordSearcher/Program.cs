@@ -23,6 +23,7 @@
             FileHandler.SearchForWord("natural", FileHandler.docObj);
             FileHandler.SearchForWord("and", FileHandler.docObj);
             FileHandler.tree.DisplayTree();
+            FileHandler.PrintXAmount(50);
         }
     }
 }

@@ -46,7 +46,7 @@ namespace WordSearcher.TextFile
             docObj.Add(d1);
             docObj.Add(d2);
             docObj.Add(d3);
-
+            
             strList.Add(textOne);
             strList.Add(textTwo);
             strList.Add(textThree);
@@ -58,10 +58,30 @@ namespace WordSearcher.TextFile
             wordsTwo = textTwo.Split(delimiterChars, StringSplitOptions.RemoveEmptyEntries);
             wordsThree = textThree.Split(delimiterChars, StringSplitOptions.RemoveEmptyEntries);
             //wordsOne = System.Text.RegularExpressions.Regex.Split(textOne, pattern);
-
+            
             wordsList.Add(wordsOne);
             wordsList.Add(wordsTwo);
             wordsList.Add(wordsThree);
+        }
+
+        public static void PrintXAmount(int userInput)
+        {
+            
+
+            foreach (var item in wordsList)
+            {
+                Array.Sort(item);
+                string[] singleWords = item.Distinct().ToArray();
+
+                for (int i = 0; i < userInput; i++)
+                {
+                    Console.WriteLine(singleWords[i]);
+                    
+                }
+
+                Console.WriteLine("--------------------------------------");
+
+            }
         }
 
         //public static void SearchForWord2()
