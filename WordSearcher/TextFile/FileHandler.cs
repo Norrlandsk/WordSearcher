@@ -88,10 +88,12 @@ namespace WordSearcher.TextFile
             foreach (var item in docObj)
             {
                 counter = Regex.Matches(item.Text, pattern, RegexOptions.IgnoreCase).Count();
+
                 wordCount.Add(item.Id, counter);
             }
+            var orderedWordCount = wordCount.OrderByDescending(c => c.Value);
 
-            SearchResult sr = new SearchResult(userInput, wordCount);
+            SearchResult sr = new SearchResult(userInput, orderedWordCount);
             InsertSearchResult(sr);
             return sr;
         }
