@@ -11,16 +11,25 @@ namespace WordSearcher.Query
         public static void PrintXAmount(List<DocumentObject> docObj)
         {
             int searchAmount = UserInputInt();
-            foreach (var item in docObj)
-            {
-                Array.Sort(item.WordsInText);
-                string[] singleWords = item.WordsInText.Distinct(StringComparer.OrdinalIgnoreCase).ToArray();
-                Console.WriteLine($"\nDocument ID: { item.Id }");
 
-                for (int i = 0; i < searchAmount && i < singleWords.Length; i++)
+            if (searchAmount >= 1)
+            {
+
+                foreach (var item in docObj)
                 {
-                    Console.WriteLine(singleWords[i]);
+                    Array.Sort(item.WordsInText);
+                    string[] singleWords = item.WordsInText.Distinct(StringComparer.OrdinalIgnoreCase).ToArray();
+                    Console.WriteLine($"\nDocument ID: { item.Id }");
+
+                    for (int i = 0; i < searchAmount && i < singleWords.Length; i++)
+                    {
+                        Console.WriteLine(singleWords[i]);
+                    }
                 }
+            }
+            else
+            {
+                Console.WriteLine("Wrong input, try again!");
             }
         }
 
@@ -72,16 +81,33 @@ namespace WordSearcher.Query
                 {
                     isValid = true;
                 }
-                
+
             } while (!isValid);
-            
+
             return userInput;
         }
 
         private static int UserInputInt()
         {
-            Console.Write("Enter the amount of words to print: ");
-            return Utils.ConfirmCorrectInput();
+            bool isValid = false;
+            int userInput;
+            do
+            {
+                Console.Write("Enter the amount of words to print: ");
+                userInput = Utils.ConfirmCorrectInput();
+
+                if(userInput <= 0)
+                {
+                    Console.WriteLine("Invalid input, try again!");
+                }
+                else
+                {
+                    isValid = true;
+                }
+
+            } while (!isValid);
+
+            return userInput;
         }
     }
 }
