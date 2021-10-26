@@ -1,6 +1,8 @@
-﻿namespace WordSearcher.DataStructure
+﻿using WordSearcher.DataObjects;
+
+namespace WordSearcher.DataStructure
 {
-    public class Node
+    internal class Node
     {
         public Node(SearchResult sr)
         {

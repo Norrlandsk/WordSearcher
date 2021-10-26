@@ -1,35 +1,19 @@
 ﻿namespace WordSearcher
 {
-    using System;
     using WordSearcher.DataStructure;
-    using WordSearcher.TextFile;
+    using WordSearcher.View;
 
-    internal class Program
+    internal static class Program
     {
+        public static Tree tree = new Tree();
+
         private static void Main(string[] args)
         {
-
-            //FileHandler.ReadFiles();
-            //FileHandler.CreateDocumentObject(FileHandler.strList);
-
-
-
-
-            //FileHandler.SearchForWord("species", FileHandler.docObj);
-            //FileHandler.SearchForWord("xylophone", FileHandler.docObj);
-            //FileHandler.SearchForWord("be", FileHandler.docObj);
-            //FileHandler.SearchForWord("and", FileHandler.docObj);
-            //FileHandler.SearchForWord("the", FileHandler.docObj);
-            //FileHandler.SearchForWord("species", FileHandler.docObj);
-            //FileHandler.SearchForWord("natural", FileHandler.docObj);
-            //FileHandler.SearchForWord("and", FileHandler.docObj);
-            //FileHandler.tree.DisplayTree();
-
-
-            //FileHandler.PrintXAmount(59, FileHandler.docObj);
-
             Setup setup = new Setup();
-            setup.InitializeTree();
+            setup.InitializeFiles();
+
+            Menu menu = new Menu();
+            menu.Main(tree);
         }
     }
 }

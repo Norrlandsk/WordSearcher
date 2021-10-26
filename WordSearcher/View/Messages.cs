@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WordSearcher.View
+﻿namespace WordSearcher.View
 {
-    class Messages
+    internal class Messages
     {
     }
 }

@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using WordSearcher.DataStructure;
+﻿using WordSearcher.DataStructure;
 using WordSearcher.TextFile;
 
 namespace WordSearcher
 {
-    class Setup
+    internal class Setup
     {
-        public void InitializeTree()
+        public Tree InitializeTree()
         {
             Tree tree = new Tree();
+            return tree;
         }
 
         public void InitializeFiles()

@@ -1,4 +1,5 @@
 ﻿using System;
+using WordSearcher.DataObjects;
 
 namespace WordSearcher.DataStructure
 {

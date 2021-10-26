@@ -1,9 +1,9 @@
-﻿namespace WordSearcher.DataStructure
+﻿namespace WordSearcher.DataObjects
 {
     using System;
     using System.Collections.Generic;
 
-    public class DocumentObject
+    internal class DocumentObject
     {
         public static List<DocumentObject> docObj = new List<DocumentObject>();
         private static int counter = 0;
