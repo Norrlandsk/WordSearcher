@@ -2,6 +2,9 @@
 
 namespace WordSearcher.DataStructure
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal class Node
     {
         public Node(SearchResult sr)

@@ -5,6 +5,9 @@ using WordSearcher.Query;
 
 namespace WordSearcher.View
 {
+    /// <summary>
+    /// Class for user interface navigation.
+    /// </summary>
     internal class Menu
     {
         public void Main(Tree tree)

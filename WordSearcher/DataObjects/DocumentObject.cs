@@ -3,6 +3,10 @@
     using System;
     using System.Collections.Generic;
 
+    /// <summary>
+    /// Class for handling incoming text files. Dynamically sets id. Contains both the original text in one string,
+    /// and the original text split into seperate words in a string array.
+    /// </summary>
     internal class DocumentObject
     {
         public static List<DocumentObject> docObj = new List<DocumentObject>();

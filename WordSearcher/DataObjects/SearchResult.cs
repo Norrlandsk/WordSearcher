@@ -4,6 +4,10 @@
     using System.Linq;
     using WordSearcher.DataStructure;
 
+    /// <summary>
+    /// Class for handling search results. Contains the search term in a string,
+    /// and how many instances the search term was present in each document in a IOrderedEnumerable&lt;KeyValuePair&gt;
+    /// </summary>
     internal class SearchResult
     {
         public SearchResult(string word, IOrderedEnumerable<KeyValuePair<int, int>> wordCount)

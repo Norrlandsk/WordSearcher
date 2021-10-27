@@ -3,6 +3,9 @@ using System.Threading;
 
 namespace WordSearcher
 {
+    /// <summary>
+    /// Helper class. Contains methods to verify user input.
+    /// </summary>
     internal static class Utils
     {
         public static int ConfirmCorrectInput(int allowedRange)

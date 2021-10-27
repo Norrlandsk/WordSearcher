@@ -3,6 +3,9 @@ using WordSearcher.TextFile;
 
 namespace WordSearcher
 {
+    /// <summary>
+    /// Class for initializing necessary objects for the application.
+    /// </summary>
     internal class Setup
     {
         public Tree InitializeTree()

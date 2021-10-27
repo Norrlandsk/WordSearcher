@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using WordSearcher.DataObjects;
-using WordSearcher.DataStructure;
 
 namespace WordSearcher.TextFile
 {
+    /// <summary>
+    /// Class for handling text files. Reads and saves them as strings and adds them to a list.
+    /// Creates DocumentObjects of each text files in the list.
+    /// </summary>
     internal static class FileHandler
     {
         public static List<string> strList = new List<string>();

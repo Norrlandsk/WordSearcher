@@ -7,8 +7,15 @@ using WordSearcher.DataObjects;
 
 namespace WordSearcher.Query
 {
+    /// <summary>
+    /// Class for handling searches.
+    /// </summary>
     internal static class Search
     {
+        /// <summary>
+        /// Prints the amount of words specified by the user.
+        /// </summary>
+        /// <param name="docObj"></param>
         public static void PrintXAmount(List<DocumentObject> docObj)
         {
             int searchAmount = UserInputInt();
@@ -35,6 +42,11 @@ namespace WordSearcher.Query
             }
         }
 
+        /// <summary>
+        /// Searches for word specified by the user.
+        /// </summary>
+        /// <param name="docObj"></param>
+        /// <returns>SearchResult object.</returns>
         public static SearchResult SearchForWord(List<DocumentObject> docObj)
         {
             string searchWord = UserInputString();
@@ -56,6 +68,10 @@ namespace WordSearcher.Query
             return sr;
         }
 
+        /// <summary>
+        /// Is a helper method for SearchForWord(), prints out the result.
+        /// </summary>
+        /// <param name="sr"></param>
         public static void PrintSearchResult(SearchResult sr)
         {
             
@@ -67,6 +83,10 @@ namespace WordSearcher.Query
             }
         }
 
+        /// <summary>
+        /// Verifies correct string input from user.
+        /// </summary>
+        /// <returns>Verified string input from user.</returns>
         private static string UserInputString()
         {
             bool isValid = false;
@@ -94,6 +114,10 @@ namespace WordSearcher.Query
             return userInput;
         }
 
+        /// <summary>
+        /// Verifies correct int input from user.
+        /// </summary>
+        /// <returns>Verified int input from user.</returns>
         private static int UserInputInt()
         {
             bool isValid = false;
@@ -105,7 +129,6 @@ namespace WordSearcher.Query
 
                 if(userInput <= 0)
                 {
-                    //Console.WriteLine("Invalid input, try again!");
                     break;
                 }
                 else
