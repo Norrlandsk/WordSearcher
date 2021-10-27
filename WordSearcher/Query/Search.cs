@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading;
 using WordSearcher.DataObjects;
 
 namespace WordSearcher.Query
@@ -29,7 +30,8 @@ namespace WordSearcher.Query
             }
             else
             {
-                Console.WriteLine("Wrong input, try again!");
+                Console.WriteLine("Invalid input");
+                PrintXAmount(docObj);
             }
         }
 
@@ -56,6 +58,7 @@ namespace WordSearcher.Query
 
         public static void PrintSearchResult(SearchResult sr)
         {
+            
             Console.WriteLine($"Search term: {sr.Word}\n");
             foreach (var item in sr.WordCount)
             {
@@ -70,12 +73,16 @@ namespace WordSearcher.Query
             string userInput;
             do
             {
+                
                 Console.Write("Enter the word to search for: ");
                 userInput = Console.ReadLine();
 
                 if (String.IsNullOrWhiteSpace(userInput))
                 {
+                    Console.Clear();
                     Console.WriteLine("Invalid input, try again!");
+                    Thread.Sleep(1250);
+                    Console.Clear();
                 }
                 else
                 {
@@ -98,7 +105,8 @@ namespace WordSearcher.Query
 
                 if(userInput <= 0)
                 {
-                    Console.WriteLine("Invalid input, try again!");
+                    //Console.WriteLine("Invalid input, try again!");
+                    break;
                 }
                 else
                 {

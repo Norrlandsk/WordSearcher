@@ -23,13 +23,19 @@ namespace WordSearcher.View
                 switch (userInput)
                 {
                     case 1:
+                        Console.Clear();
                         Search.PrintSearchResult(Search.SearchForWord(DocumentObject.docObj));
+                        Utils.ContinueAndClear();
                         break;
                     case 2:
+                        Console.Clear();
                         tree.DisplayTree();
+                        Utils.ContinueAndClear();
                         break;
                     case 3:
+                        Console.Clear();
                         Search.PrintXAmount(DocumentObject.docObj);
+                        Utils.ContinueAndClear();
                         break;
                     case 4:
                         isRunning = false;

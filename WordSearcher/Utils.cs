@@ -18,7 +18,7 @@ namespace WordSearcher
                 {
                     break;
                 }
-                else if (menuChoiceString == "")
+                else if (string.IsNullOrWhiteSpace(menuChoiceString))
                 {
                     Console.Clear();
                     break;
@@ -48,7 +48,7 @@ namespace WordSearcher
                 {
                     break;
                 }
-                else if (menuChoiceString == "")
+                else if (string.IsNullOrWhiteSpace(menuChoiceString))
                 {
                     Console.Clear();
                     break;
@@ -63,6 +63,13 @@ namespace WordSearcher
                 }
             } while (true);
             return confirmedChoice;
+        }
+
+        public static void ContinueAndClear()
+        {
+            Console.WriteLine("\nPress Enter to continue");
+            Console.ReadLine();
+            Console.Clear();
         }
     }
 }

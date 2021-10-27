@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using WordSearcher.DataObjects;
 
 namespace WordSearcher.DataStructure
@@ -73,6 +74,12 @@ namespace WordSearcher.DataStructure
 
         public void DisplayTree()
         {
+            if (_root == null)
+            {
+                Console.Clear();
+                Console.WriteLine("No previous searches has been done");
+                return;
+            }
             DisplayTree(_root);
         }
 
