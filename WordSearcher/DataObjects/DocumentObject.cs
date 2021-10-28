@@ -5,7 +5,7 @@
 
     /// <summary>
     /// Class for handling incoming text files. Dynamically sets id. Contains both the original text in one string,
-    /// and the original text split into seperate words in a string array.
+    /// and the original text split into seperate words in a string array with the private method CreateWordArray().
     /// </summary>
     internal class DocumentObject
     {
@@ -15,7 +15,6 @@
 
         public DocumentObject(string text)
         {
-            //this.Id = System.Threading.Interlocked.Increment(ref counter);
             counter++;
             Id = counter;
             Text = text;

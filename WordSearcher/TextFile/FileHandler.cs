@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using WordSearcher.DataObjects;
-
-namespace WordSearcher.TextFile
+﻿namespace WordSearcher.TextFile
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using WordSearcher.DataObjects;
+
     /// <summary>
     /// Class for handling text files. Reads and saves them as strings and adds them to a list.
     /// Creates DocumentObjects of each text files in the list.

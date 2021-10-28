@@ -1,10 +1,10 @@
-﻿using System;
-using WordSearcher.DataObjects;
-using WordSearcher.DataStructure;
-using WordSearcher.Query;
-
-namespace WordSearcher.View
+﻿namespace WordSearcher.View
 {
+    using System;
+    using WordSearcher.DataObjects;
+    using WordSearcher.DataStructure;
+    using WordSearcher.Query;
+
     /// <summary>
     /// Class for user interface navigation.
     /// </summary>
@@ -30,16 +30,19 @@ namespace WordSearcher.View
                         Search.PrintSearchResult(Search.SearchForWord(DocumentObject.docObj));
                         Utils.ContinueAndClear();
                         break;
+
                     case 2:
                         Console.Clear();
-                        tree.DisplayTree();
+                        tree.PrintTree();
                         Utils.ContinueAndClear();
                         break;
+
                     case 3:
                         Console.Clear();
                         Search.PrintXAmount(DocumentObject.docObj);
                         Utils.ContinueAndClear();
                         break;
+
                     case 4:
                         isRunning = false;
                         break;
@@ -48,7 +51,3 @@ namespace WordSearcher.View
         }
     }
 }
-
-
-
-

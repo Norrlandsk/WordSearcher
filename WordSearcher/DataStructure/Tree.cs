@@ -1,8 +1,8 @@
-﻿using System;
-using WordSearcher.DataObjects;
-
-namespace WordSearcher.DataStructure
+﻿namespace WordSearcher.DataStructure
 {
+    using System;
+    using WordSearcher.DataObjects;
+
     /// <summary>
     /// Abstract binary data structure for saving search results.
     /// </summary>
@@ -109,6 +109,5 @@ namespace WordSearcher.DataStructure
             }
             PrintTree(_root);
         }
-
     }
 }

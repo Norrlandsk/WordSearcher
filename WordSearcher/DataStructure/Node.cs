@@ -1,9 +1,10 @@
-﻿using WordSearcher.DataObjects;
-
-namespace WordSearcher.DataStructure
+﻿namespace WordSearcher.DataStructure
 {
+    using WordSearcher.DataObjects;
+
     /// <summary>
-    /// 
+    /// Class for creating nodes in the tree class.
+    /// Node is populated with a search result object.
     /// </summary>
     internal class Node
     {
@@ -17,5 +18,3 @@ namespace WordSearcher.DataStructure
         public Node Right { get; set; }
     }
 }
-
-        

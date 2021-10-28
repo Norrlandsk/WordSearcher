@@ -1,8 +1,8 @@
-﻿using WordSearcher.DataStructure;
-using WordSearcher.TextFile;
-
-namespace WordSearcher
+﻿namespace WordSearcher
 {
+    using WordSearcher.DataStructure;
+    using WordSearcher.TextFile;
+
     /// <summary>
     /// Class for initializing necessary objects for the application.
     /// </summary>

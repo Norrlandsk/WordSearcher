@@ -1,8 +1,8 @@
-﻿using System;
-using System.Threading;
-
-namespace WordSearcher
+﻿namespace WordSearcher
 {
+    using System;
+    using System.Threading;
+
     /// <summary>
     /// Helper class. Contains methods to verify user input.
     /// </summary>

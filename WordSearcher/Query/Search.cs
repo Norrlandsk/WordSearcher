@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Threading;
-using WordSearcher.DataObjects;
-
-namespace WordSearcher.Query
+﻿namespace WordSearcher.Query
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text.RegularExpressions;
+    using System.Threading;
+    using WordSearcher.DataObjects;
+
     /// <summary>
     /// Class for handling searches.
     /// </summary>
@@ -22,7 +22,6 @@ namespace WordSearcher.Query
 
             if (searchAmount >= 1)
             {
-
                 foreach (var item in docObj)
                 {
                     Array.Sort(item.WordsInText);
@@ -76,7 +75,6 @@ namespace WordSearcher.Query
         /// <param name="sr"></param>
         public static void PrintSearchResult(SearchResult sr)
         {
-            
             Console.WriteLine($"Search term: {sr.Word}\n");
             foreach (var item in sr.WordCount)
             {
@@ -96,7 +94,6 @@ namespace WordSearcher.Query
             string userInput;
             do
             {
-                
                 Console.Write("Enter the word to search for: ");
                 userInput = Console.ReadLine();
 
@@ -111,7 +108,6 @@ namespace WordSearcher.Query
                 {
                     isValid = true;
                 }
-
             } while (!isValid);
 
             return userInput;
@@ -131,7 +127,7 @@ namespace WordSearcher.Query
                 Console.Write("Enter the amount of words to print: ");
                 userInput = Utils.ConfirmCorrectInput();
 
-                if(userInput <= 0)
+                if (userInput <= 0)
                 {
                     break;
                 }
@@ -139,7 +135,6 @@ namespace WordSearcher.Query
                 {
                     isValid = true;
                 }
-
             } while (!isValid);
 
             return userInput;
