@@ -44,6 +44,7 @@ namespace WordSearcher.Query
 
         /// <summary>
         /// Searches for word specified by the user.
+        /// O(n^2+10)
         /// </summary>
         /// <param name="docObj"></param>
         /// <returns>SearchResult object.</returns>
@@ -70,6 +71,7 @@ namespace WordSearcher.Query
 
         /// <summary>
         /// Is a helper method for SearchForWord(), prints out the result.
+        /// O(n+3)
         /// </summary>
         /// <param name="sr"></param>
         public static void PrintSearchResult(SearchResult sr)
@@ -85,6 +87,7 @@ namespace WordSearcher.Query
 
         /// <summary>
         /// Verifies correct string input from user.
+        /// O(n+11)
         /// </summary>
         /// <returns>Verified string input from user.</returns>
         private static string UserInputString()
@@ -116,6 +119,7 @@ namespace WordSearcher.Query
 
         /// <summary>
         /// Verifies correct int input from user.
+        /// O(n+8)
         /// </summary>
         /// <returns>Verified int input from user.</returns>
         private static int UserInputInt()
