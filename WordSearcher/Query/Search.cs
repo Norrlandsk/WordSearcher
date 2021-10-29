@@ -14,18 +14,18 @@
     {
         /// <summary>
         /// Prints the amount of words specified by the user.
+        /// n(m^2+m+p) -> O(nm^2+nm+np) -> O(nm^2)
         /// </summary>
-        /// <param name="docObj"></param>
-        public static void PrintXAmount(List<DocumentObject> docObj)
+        public static void PrintXAmount(List<DocumentObject> docObjList)
         {
             int searchAmount = UserInputInt();
 
             if (searchAmount >= 1)
             {
-                foreach (var item in docObj)
+                foreach (var item in docObjList) 
                 {
-                    Array.Sort(item.WordsInText);
-                    string[] singleWords = item.WordsInText.Distinct(StringComparer.OrdinalIgnoreCase).ToArray();
+                    Array.Sort(item.TextSplitArr);
+                    string[] singleWords = item.TextSplitArr.Distinct(StringComparer.OrdinalIgnoreCase).ToArray();
                     Console.WriteLine($"\nDocument ID: { item.Id }");
 
                     for (int i = 0; i < searchAmount && i < singleWords.Length; i++)
@@ -37,46 +37,44 @@
             else
             {
                 Console.WriteLine("Invalid input");
-                PrintXAmount(docObj);
+                PrintXAmount(docObjList);
             }
         }
 
         /// <summary>
         /// Searches for word specified by the user.
-        /// O(n^2+10)
+        /// n(m^2+p^2) -> O(nm^2+np^2) -> O(nm^2)
         /// </summary>
-        /// <param name="docObj"></param>
         /// <returns>SearchResult object.</returns>
-        public static SearchResult SearchForWord(List<DocumentObject> docObj)
+        public static SearchResult SearchForWord(List<DocumentObject> docObjList)
         {
-            string searchWord = UserInputString();
-            string searchPattern = string.Format(@"\b{0}\b", searchWord);
+            string searchTerm = UserInputString();
+            string searchPattern = string.Format(@"\b{0}\b", searchTerm);
             int counter = 0;
 
-            Dictionary<int, int> wordCount = new Dictionary<int, int>();
+            Dictionary<int, int> searchTermCount = new Dictionary<int, int>();
 
-            foreach (var item in docObj)
+            foreach (var item in docObjList)
             {
                 counter = Regex.Matches(item.Text, searchPattern, RegexOptions.IgnoreCase).Count();
 
-                wordCount.Add(item.Id, counter);
+                searchTermCount.Add(item.Id, counter);
             }
-            var orderedWordCount = wordCount.OrderByDescending(c => c.Value);
+            var orderedWordCount = searchTermCount.OrderByDescending(c => c.Value);
 
-            SearchResult sr = new SearchResult(searchWord, orderedWordCount);
-            SearchResult.InsertSearchResult(sr, Program.tree);
-            return sr;
+            SearchResult searchResult = new SearchResult(searchTerm, orderedWordCount);
+            SearchResult.InsertSearchResult(searchResult, Setup.tree);
+            return searchResult;
         }
 
         /// <summary>
         /// Is a helper method for SearchForWord(), prints out the result.
-        /// O(n+3)
+        /// O(n)
         /// </summary>
-        /// <param name="sr"></param>
-        public static void PrintSearchResult(SearchResult sr)
+        public static void PrintSearchResult(SearchResult searchResult)
         {
-            Console.WriteLine($"Search term: {sr.Word}\n");
-            foreach (var item in sr.WordCount)
+            Console.WriteLine($"Search term: {searchResult.SearchTerm}\n");
+            foreach (var item in searchResult.SearchTermCount)
             {
                 Console.WriteLine($"Document ID: {item.Key}");
                 Console.WriteLine($"Instances of search term: {item.Value}\n");
@@ -85,7 +83,6 @@
 
         /// <summary>
         /// Verifies correct string input from user.
-        /// O(n+11)
         /// </summary>
         /// <returns>Verified string input from user.</returns>
         private static string UserInputString()
@@ -115,7 +112,6 @@
 
         /// <summary>
         /// Verifies correct int input from user.
-        /// O(n+8)
         /// </summary>
         /// <returns>Verified int input from user.</returns>
         private static int UserInputInt()

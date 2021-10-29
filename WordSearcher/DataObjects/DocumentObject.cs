@@ -9,27 +9,27 @@
     /// </summary>
     internal class DocumentObject
     {
-        public static List<DocumentObject> docObj = new List<DocumentObject>();
-        private static int counter = 0;
+        public static List<DocumentObject> docObjList = new List<DocumentObject>();
+        private static int idCounter = 0;
         private char[] delimiterChars = { ' ', ',', '.', ':', '—', '-', ';', '\n', '\r', '‘', '’', '(', ')', '?' };
 
         public DocumentObject(string text)
         {
-            counter++;
-            Id = counter;
+            idCounter++;
+            Id = idCounter;
             Text = text;
-            CreateWordArray(Text);
+            CreateTextSplitArr(Text);
         }
 
         public int Id { get; set; }
 
         public string Text { get; set; }
 
-        public string[] WordsInText { get; set; }
+        public string[] TextSplitArr { get; set; }
 
-        private void CreateWordArray(string text)
+        private void CreateTextSplitArr(string text)
         {
-            WordsInText = text.Split(delimiterChars, StringSplitOptions.RemoveEmptyEntries);
+            TextSplitArr = text.Split(delimiterChars, StringSplitOptions.RemoveEmptyEntries);
         }
     }
 }

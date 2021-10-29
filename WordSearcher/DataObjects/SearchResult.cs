@@ -10,15 +10,15 @@
     /// </summary>
     internal class SearchResult
     {
-        public SearchResult(string word, IOrderedEnumerable<KeyValuePair<int, int>> wordCount)
+        public SearchResult(string searchTerm, IOrderedEnumerable<KeyValuePair<int, int>> searchTermCount)
         {
-            Word = word;
-            WordCount = wordCount;
+            SearchTerm = searchTerm;
+            SearchTermCount = searchTermCount;
         }
 
-        public string Word { get; set; }
+        public string SearchTerm { get; set; }
 
-        public IOrderedEnumerable<KeyValuePair<int, int>> WordCount { get; set; }
+        public IOrderedEnumerable<KeyValuePair<int, int>> SearchTermCount { get; set; }
 
         public static void InsertSearchResult(SearchResult sr, Tree tree)
         {

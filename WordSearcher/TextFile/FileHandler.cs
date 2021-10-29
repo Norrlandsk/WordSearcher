@@ -6,13 +6,15 @@
     using WordSearcher.DataObjects;
 
     /// <summary>
-    /// Class for handling text files. Reads and saves them as strings and adds them to a list.
-    /// Creates DocumentObjects of each text files in the list.
+    /// Class for handling text files.
     /// </summary>
     internal static class FileHandler
     {
         public static List<string> strList = new List<string>();
 
+        /// <summary>
+        ///  Reads and saves the text files as strings and adds them to a list.
+        /// </summary>
         public static void ReadFiles()
         {
             string docPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -26,12 +28,15 @@
             strList.Add(textThree);
         }
 
+        /// <summary>
+        /// Creates DocumentObjects of each text files in the list.
+        /// </summary>
         public static void CreateDocumentObject(List<string> textList)
         {
             foreach (var item in textList)
             {
                 DocumentObject document = new DocumentObject(item);
-                DocumentObject.docObj.Add(document);
+                DocumentObject.docObjList.Add(document);
             }
         }
     }

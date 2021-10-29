@@ -27,7 +27,7 @@
                 {
                     case 1:
                         Console.Clear();
-                        Search.PrintSearchResult(Search.SearchForWord(DocumentObject.docObj));
+                        Search.PrintSearchResult(Search.SearchForWord(DocumentObject.docObjList));
                         Utils.ContinueAndClear();
                         break;
 
@@ -39,7 +39,7 @@
 
                     case 3:
                         Console.Clear();
-                        Search.PrintXAmount(DocumentObject.docObj);
+                        Search.PrintXAmount(DocumentObject.docObjList);
                         Utils.ContinueAndClear();
                         break;
 

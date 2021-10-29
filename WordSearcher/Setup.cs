@@ -6,15 +6,11 @@
     /// <summary>
     /// Class for initializing necessary objects for the application.
     /// </summary>
-    internal class Setup
+    internal static class Setup
     {
-        public Tree InitializeTree()
-        {
-            Tree tree = new Tree();
-            return tree;
-        }
+        public static Tree tree = new Tree();
 
-        public void InitializeFiles()
+        public static void InitializeFiles()
         {
             FileHandler.ReadFiles();
             FileHandler.CreateDocumentObject(FileHandler.strList);

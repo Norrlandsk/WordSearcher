@@ -1,19 +1,15 @@
 ﻿namespace WordSearcher
 {
-    using WordSearcher.DataStructure;
     using WordSearcher.View;
 
     internal static class Program
     {
-        public static Tree tree = new Tree();
-
-        private static void Main(string[] args)
+        private static void Main()
         {
-            Setup setup = new Setup();
-            setup.InitializeFiles();
+            Setup.InitializeFiles();
 
             Menu menu = new Menu();
-            menu.Main(tree);
+            menu.Main(Setup.tree);
         }
     }
 }

@@ -8,9 +8,9 @@
     /// </summary>
     internal class Node
     {
-        public Node(SearchResult sr)
+        public Node(SearchResult searchResult)
         {
-            this.Result = sr;
+            Result = searchResult;
         }
 
         public Node Left { get; set; }

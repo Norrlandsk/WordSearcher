@@ -1,6 +1,7 @@
 ﻿namespace WordSearcher
 {
     using System;
+    using System.Text.RegularExpressions;
     using System.Threading;
 
     /// <summary>
@@ -43,15 +44,15 @@
             int confirmedChoice;
             do
             {
-                string menuChoiceString = Console.ReadLine();
+                string userInput = Console.ReadLine();
 
-                bool successfulConversion = Int32.TryParse(menuChoiceString, out confirmedChoice);
+                bool successfulConversion = Int32.TryParse(userInput, out confirmedChoice);
 
                 if (successfulConversion && confirmedChoice > 0)
                 {
                     break;
                 }
-                else if (string.IsNullOrWhiteSpace(menuChoiceString))
+                else if (string.IsNullOrWhiteSpace(userInput))
                 {
                     Console.Clear();
                     break;
@@ -73,6 +74,12 @@
             Console.WriteLine("\nPress Enter to continue");
             Console.ReadLine();
             Console.Clear();
+        }
+
+        public static string RemoveUnWantedChars(string text)
+        {
+            return Regex.Replace(text, @"—?", "");
+
         }
     }
 }

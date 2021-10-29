@@ -26,15 +26,15 @@
         /// If the root node is null, the new node becomes the root.
         /// Otherwise a recursive insertion method is called using the new node as the parameter.
         /// </summary>
-        public void Insert(SearchResult sr)
+        public void Insert(SearchResult searchResult)
         {
             if (_root == null)
             {
-                _root = new Node(sr);
+                _root = new Node(searchResult);
             }
             else
             {
-                InsertChild(_root, new Node(sr));
+                InsertChild(_root, new Node(searchResult));
             }
         }
 
@@ -49,7 +49,7 @@
             }
 
             // If the new node's value < the current root node.
-            if (String.Compare(newNode.Result.Word, root.Result.Word, comparisonType: StringComparison.OrdinalIgnoreCase) < 0)
+            if (String.Compare(newNode.Result.SearchTerm, root.Result.SearchTerm, comparisonType: StringComparison.OrdinalIgnoreCase) < 0)
             {
                 if (root.Left == null) // If the left child position is empty.
                 {
@@ -85,8 +85,8 @@
             if (root == null) return;
 
             PrintTree(root.Left);
-            Console.WriteLine($"Word: {root.Result.Word}");
-            foreach (var item in root.Result.WordCount)
+            Console.WriteLine($"Word: {root.Result.SearchTerm}");
+            foreach (var item in root.Result.SearchTermCount)
             {
                 Console.WriteLine($"Document ID: {item.Key}");
                 Console.WriteLine($"Count: {item.Value}");
