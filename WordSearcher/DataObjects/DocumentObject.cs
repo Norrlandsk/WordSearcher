@@ -11,7 +11,7 @@
     {
         public static List<DocumentObject> docObjList = new List<DocumentObject>();
         private static int idCounter = 0;
-        private char[] delimiterChars = { ' ', ',', '.', ':', '—', '-', ';', '\n', '\r', '‘', '’', '(', ')', '?' };
+        private char[] delimiterChars = { ' ', ',', '.', ':', '—', '-', ';', '\n', '\r', '‘', '’', '(', ')', '?', '!' };
 
         public DocumentObject(string text)
         {

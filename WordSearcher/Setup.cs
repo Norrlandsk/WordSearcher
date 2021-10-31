@@ -13,7 +13,7 @@
         public static void InitializeFiles()
         {
             FileHandler.ReadFiles();
-            FileHandler.CreateDocumentObject(FileHandler.strList);
+            FileHandler.CreateDocumentObjects(FileHandler.strList);
         }
     }
 }
